@@ -13,4 +13,4 @@ run:
   args:
     - --frontend=dockerfile.v0
     - --local=context=./context
-    - --local=dockerfile=./Dockerfile
+    - --local=dockerfile=./context
