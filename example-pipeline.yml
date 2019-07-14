@@ -1,0 +1,25 @@
+resources:
+  - name: repository
+    type: git
+    source:
+      uri: https://github.com/cirocosta/buildkit-task
+
+  - name: image
+    type: registry-image
+    source:
+      repository: cirocosta/buildkit-task
+
+
+jobs:
+  - name: build
+    plan:
+      - in_parallel:
+          steps:
+            - get: repository
+              trigger: true
+            - get: image
+      - task: build
+        file: repository/task.yml
+        image: image
+        input_mapping: {context: repository}
+        privileged: true

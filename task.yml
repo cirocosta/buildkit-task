@@ -1,0 +1,16 @@
+platform: linux
+
+image_resource:
+  type: registry-image
+  source:
+    repository: cirocosta/buildkit-task
+
+inputs:
+  - name: context
+
+run:
+  path: build
+  args:
+    - --frontend=dockerfile.v0
+    - --local=context=./context
+    - --local=dockerfile=./context/Dockerfile
