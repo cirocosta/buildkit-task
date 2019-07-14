@@ -1,5 +1,4 @@
 #!/bin/sh
 
-set -o errexit
-
+stty columns 80
 exec buildctl-daemonless.sh build $@

@@ -20,6 +20,7 @@ jobs:
             - get: image
       - task: build
         file: repository/task.yml
+        tags: [ubuntu]
         image: image
         input_mapping: {context: repository}
-        privileged: true
+        # privileged: true
