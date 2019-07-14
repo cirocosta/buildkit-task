@@ -2,7 +2,7 @@ resources:
   - name: repository
     type: git
     source:
-      uri: https://github.com/cirocosta/buildkit-task
+      uri: https://((github-token))@github.com/cirocosta/buildkit-task
 
   - name: image
     type: registry-image

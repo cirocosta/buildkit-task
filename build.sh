@@ -1,5 +1,5 @@
-#!/bin/bash
+#!/bin/sh
 
 set -o errexit
 
-echo "lol"
+exec buildctl-daemonless.sh build $@
