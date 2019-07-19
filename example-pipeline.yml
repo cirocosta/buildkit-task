@@ -9,6 +9,12 @@ resources:
     source:
       repository: cirocosta/buildkit-task
 
+  - name: buildkit-master-image
+    type: registry-image
+    source:
+      repository: moby/buildkit
+      tag: master-rootless
+
 
 jobs:
   - name: build
@@ -18,6 +24,8 @@ jobs:
             - get: repository
               trigger: true
             - get: image
+            - get: buildkit-master-image
+              trigger: true
       - task: build
         file: repository/task.yml
         image: image
