@@ -3,12 +3,6 @@
 set -o errexit
 set -o nounset
 
-main () {
-	sanitize_cgroups
-	stty columns 80
-	exec buildctl-daemonless.sh build $@
-}
-
 sanitize_cgroups() {
   mkdir -p /sys/fs/cgroup
   mountpoint -q /sys/fs/cgroup || \
@@ -54,4 +48,4 @@ sanitize_cgroups() {
   fi
 }
 
-main "$@"
+sanitize_cgroups

@@ -9,8 +9,13 @@ inputs:
   - name: context
 
 run:
-  path: build
+  path: /bin/sh
   args:
-    - --frontend=dockerfile.v0
-    - --local=context=./context
-    - --local=dockerfile=./context
+    - -cex
+    - |
+      stty columns 80
+      sanitize-cgroups.sh
+      exec buildctl-daemonless.sh build \
+        --frontend=dockerfile.v0 \
+        --local=context=./context \
+        --local=dockerfile=./context
