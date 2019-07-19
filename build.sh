@@ -4,7 +4,7 @@ set -o errexit
 set -o nounset
 
 main () {
-	sanatize_cgroups
+	sanitize_cgroups
 	stty columns 80
 	exec buildctl-daemonless.sh build $@
 }

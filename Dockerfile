@@ -1,4 +1,4 @@
-FROM moby/buildkit:rootless
+FROM moby/buildkit:master-rootless
 
 	USER root
 	ENV USER=root
