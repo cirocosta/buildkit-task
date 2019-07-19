@@ -1,9 +1,9 @@
-FROM cirocosta/buildkit:rootless
+FROM moby/buildkit:rootless
 
-ENV BUILDKITD_FLAGS=--oci-worker-no-process-sandbox
-ADD ./build.sh /usr/local/bin/build
+	USER root
+	ENV USER=root
+	ENV HOME=/root
 
-# to ensure that `run` is able to run accordingly when building it with buildkit
-# on Concourse.
-#
-RUN echo "!"
+	RUN apk add --update bash
+
+	ADD ./build.sh /usr/local/bin/build
