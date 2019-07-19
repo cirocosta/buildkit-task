@@ -6,4 +6,4 @@ FROM moby/buildkit:master-rootless
 
 	RUN apk add --update bash
 
-	ADD ./build.sh /usr/local/bin/build
+	ADD ./sanitize-cgroups.sh /usr/local/bin/sanitize-cgroups

@@ -14,7 +14,7 @@ run:
     - -cex
     - |
       stty columns 80
-      sanitize-cgroups.sh
+      sanitize-cgroups
       exec buildctl-daemonless.sh build \
         --frontend=dockerfile.v0 \
         --local=context=./context \
